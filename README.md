@@ -44,3 +44,4 @@ Do not change the name of the template folders or files unless you know
 what you are doing and are changing the names in HTML files too.
 For webhosting, you can go with https://templateflip.com/go/hosting for easy FTP file uploads.
 
+
