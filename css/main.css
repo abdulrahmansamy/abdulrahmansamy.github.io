@@ -1215,6 +1215,7 @@
     overflow: hidden;
     position: relative;
     line-height: normal; }
+    
     .btn.btn-icon.btn-fab,
     .navbar .navbar-nav > a.btn.btn-icon.btn-fab {
       line-height: 3.2rem; 
