@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h1>Activation QR code Generator</h1>
+  <form onsubmit=myFunction(fname)>
+    <label for="fname">Activation Code:</label>
+    <input type="text" id="fname" name="fname"  value=""><br><br>
+    <input type="submit" value="Generate">
+  </form>
+
+  <div id="qrcode"></div>
+
+
+<script src="qrcode.min.js"></script>
+
+<script>
+    function myFunction(input) {
+      var elementValue = input.value;
+
+      var qrc = new QRCode(document.getElementById("qrcode"), {
+        text: elementValue,
+        width: 250,
+        height: 250,
+        colorDark: "#492580",
+        colorLight: "#FFFFFF",
+        //colorLight: "#E73C60",
+        // QRCode.CorrectLevel.L | QRCode.CorrectLevel.M | QRCode.CorrectLevel.H
+        correctLevel: QRCode.CorrectLevel.L
+
+      });
+    };
+
+  </script>
+
+
+</body>
+
+</html>
