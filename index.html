@@ -28,6 +28,7 @@
   <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/font-awesome.min.css"> -->
   <script src="https://kit.fontawesome.com/b8fbfd5eaf.js" crossorigin="anonymous"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdDMdkqAAAAAODrRUvcYTOfDxegIYIWo3oEYs1w"></script> <!-- Add reCAPTCHA script -->
   <noscript>
     <style type="text/css">
       [data-aos] {
@@ -788,6 +789,7 @@
                                 </div>
                               </div>
                             </div>
+                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"> <!-- Hidden input for reCAPTCHA token -->
                             <div class="row">
                               <div class="col">
                                 <button class="btn btn-primary" type="submit">Send</button>
@@ -795,7 +797,7 @@
                             </div>
                           </form>
 
-                          <script src="scripts/scripts.js"></script> <!-- Link to the external JavaScript file -->
+                          <script src="scripts/scripts_v2.js"></script> <!-- Link to the external JavaScript file -->
 
 
                         </div>
