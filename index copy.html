@@ -669,7 +669,7 @@
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="row">
-                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/photos/reference-image-1.jpg"
+                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-1.jpg"
                         alt="Image" />
                       <div class="h5 pt-2">Aiyana</div>
                       <p class="category">CEO / WEBM</p>
@@ -685,7 +685,7 @@
                 </div>
                 <div class="carousel-item">
                   <div class="row">
-                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/photos/reference-image-2.jpg"
+                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-2.jpg"
                         alt="Image" />
                       <div class="h5 pt-2">Braiden</div>
                       <p class="category">CEO / Creativem</p>
@@ -701,7 +701,7 @@
                 </div>
                 <div class="carousel-item">
                   <div class="row">
-                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/photos/reference-image-3.jpg"
+                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-3.jpg"
                         alt="Image" />
                       <div class="h5 pt-2">Alexander</div>
                       <p class="category">CEO / Webnote</p>
@@ -734,7 +734,7 @@
                       <div class="col-md-6">
                         <div class="card-body">
 
-                          
+<!--                          
                           <form action="mailto:contactme@abdulrahmansamy.com" method="POST">
                             <div class="p pb-3"><strong>Feel free to contact me </strong></div>
                             <div class="row mb-3">
@@ -783,7 +783,137 @@
                                 <button class="btn btn-primary" type="submit">Send</button>
                               </div>
                             </div>
+                          </form> -->
+
+                          <!-- 
+                          <form action="https://formspree.io/f/{your_form_id}" method="POST">
+                            <div class="p pb-3"><strong>Feel free to contact me </strong></div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-user-circle"></i>
+                                  </span>
+                                  <input class="form-control" type="text" name="name" placeholder="Name" required="required" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-file-text"></i>
+                                  </span>
+                                  <input class="form-control" type="text" name="subject" placeholder="Subject" required="required" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                  </span>
+                                  <input class="form-control" type="email" name="_replyto" placeholder="E-mail" required="required" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="form-group">
+                                  <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <button class="btn btn-primary" type="submit">Send</button>
+                              </div>
+                            </div>
+                          </form> -->
+                          
+                          <form id="contact-form">
+                            <div class="p pb-3"><strong>Feel free to contact me </strong></div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-user-circle"></i>
+                                  </span>
+                                  <input class="form-control" type="text" name="name" placeholder="Name" required="required" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-file-text"></i>
+                                  </span>
+                                  <input class="form-control" type="text" name="subject" placeholder="Subject" required="required" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="input-group">
+                                  <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                  </span>
+                                  <input class="form-control" type="email" name="email" placeholder="E-mail" required="required" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="form-group">
+                                  <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <button class="btn btn-primary" type="submit">Send</button>
+                              </div>
+                            </div>
                           </form>
+                          
+                          <script>
+                            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                              event.preventDefault();
+                          
+                              const formData = new FormData(this);
+                              const data = {};
+                              formData.forEach((value, key) => {
+                                data[key] = value;
+                              });
+                          
+                              fetch('https://us-central1-anthos-demo-project-0001.cloudfunctions.net/node-mail-function/send-email', {
+                                method: 'POST',
+                                headers: {
+                                  'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data)
+                              })
+                              .then(response => {
+                                if (!response.ok) {
+                                  throw new Error('Network response was not ok ' + response.statusText);
+                                }
+                                return response.json();
+                              })
+                              .then(result => {
+                                if (result.success) {
+                                  alert('Email sent successfully!');
+                                } else {
+                                  alert('Failed to send email.');
+                                }
+                              })
+                              .catch(error => {
+                                console.error('There was a problem with the fetch operation:', error);
+                                alert('Failed to send email. Error: ' + error.message);
+                              });
+                            });
+                          </script>
 
 
                         </div>
@@ -806,7 +936,11 @@
           </div>
         </div>
       </div>
+   
+    
 
+
+      
     </div>
   </div>
   <footer class="footer">
