@@ -831,42 +831,7 @@
                           </div>
                         </form>
                         
-                        <script>
-                          document.getElementById('contact-form').addEventListener('submit', function(event) {
-                            event.preventDefault();
-                        
-                            const formData = new FormData(this);
-                            const data = {};
-                            formData.forEach((value, key) => {
-                              data[key] = value;
-                            });
-                        
-                            fetch('https://us-central1-anthos-demo-project-0001.cloudfunctions.net/node-mail-function/send-email', {
-                              method: 'POST',
-                              headers: {
-                                'Content-Type': 'application/json'
-                              },
-                              body: JSON.stringify(data)
-                            })
-                            .then(response => {
-                              if (!response.ok) {
-                                throw new Error('Network response was not ok ' + response.statusText);
-                              }
-                              return response.json();
-                            })
-                            .then(result => {
-                              if (result.success) {
-                                alert('Email sent successfully!');
-                              } else {
-                                alert('Failed to send email.');
-                              }
-                            })
-                            .catch(error => {
-                              console.error('There was a problem with the fetch operation:', error);
-                              alert('Failed to send email. Error: ' + error.message);
-                            });
-                          });
-                        </script>
+                        <script src="scripts.js"></script> <!-- Link to the external JavaScript file -->
 
 
                         </div>
